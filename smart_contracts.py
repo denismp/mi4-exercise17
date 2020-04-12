@@ -21,7 +21,7 @@ CONTRACT_INSTANCE = w3.eth.contract(w3.toChecksumAddress(CONTRACT_ADDRESS),abi=j
 ACCOUNT_ADDRESS = "0x28Fcf7997E56f1Fadd4FA39fD834e5B96cb13b2B" # from metamask
 
 def add_fact(contract_instance, private_key, address, fact):
-      nonce = w3.eth.getTransactionCount(address) # this does not work with the 72 from what i see in ropsten.
+      nonce = w3.eth.getTransactionCount(address) # this must be the account address from metamask.
       add_transaction = contract_instance.functions.add(fact).buildTransaction({
             'gas': 4600000,
             'nonce': nonce
